@@ -1,0 +1,36 @@
+name: Lint and Type Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.5"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install poetry
+          poetry install --no-interaction --no-root
+
+      - name: Run mypy
+        run: |
+          poetry run mypy .\src
+
+      - name: Run pylint
+        run: |
+          poetry run pylint --rc-file .pylintrc .\src

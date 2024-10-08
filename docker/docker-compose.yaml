@@ -1,0 +1,36 @@
+name: share_tracker
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+    container_name: backend
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongo:27017
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000
+    networks:
+      - app_network
+  mongo:
+    image: mongo:8.0-noble
+    container_name: mongodb
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    networks:
+      - app_network
+    volumes:
+      - mongo_data:/data/db
+
+networks:
+  app_network:
+
+volumes:
+  mongo_data:

@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "share-tracker"
+version = "0.1.0"
+description = ""
+authors = ["Soroush Alinia <soroushalinia.wm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = { extras = ["standard"], version = "^0.115.0" }
+uvicorn = "^0.31.0"
+pydantic = "^2.9.2"
+beanie = "^1.26.0"
+pydantic-settings = "^2.5.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.3.1"
+pipx = "^1.7.1"
+pytest = "^8.3.3"
+ruff = "^0.6.8"
+mypy = "^1.11.2"
+pytest-cov = "^5.0.0"
+pre-commit = "^3.8.0"
+testcontainers = { extras = ["mongo"], version = "^4.8.1" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+indent-width = 2
+line-length = 80

@@ -1,0 +1,60 @@
+site_name: Share Tracker
+site_url: https://soroushalinia.github.io/share_tracker
+site_author: Soroush Alinia
+repo_name: soroushalinia/share_tracker
+repo_url: https://github.com/soroushalinia/share_tracker
+
+copyright: Copyright &copy; 2024 Soroush Alinia
+theme:
+  name: material
+  features:
+    - navigation.footer
+    - content.tooltips
+  palette:
+    scheme: slate
+    primary: black
+    accent: indigo
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/soroushalinia
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/soroush_pm
+nav:
+  - Introduction: index.md
+  - Schema: schema.md
+markdown_extensions:
+  abbr:
+  attr_list:
+  footnotes:
+  md_in_html:
+  tables:
+  toc:
+    permalink: true
+  pymdownx.betterem:
+    smart_enable: all
+  pymdownx.caret:
+  pymdownx.highlight:
+    line_spans: __span
+  pymdownx.inlinehilite:
+  pymdownx.keys:
+  pymdownx.mark:
+  pymdownx.snippets:
+  pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+  pymdownx.tilde:
+  pymdownx.blocks.admonition:
+    types:
+      - note
+      - attention
+      - caution
+      - danger
+      - error
+      - tip
+      - hint
+      - warning
+  pymdownx.blocks.details:
+  pymdownx.blocks.tab:
+    alternate_style: True
