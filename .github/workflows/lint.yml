@@ -29,8 +29,8 @@ jobs:
 
       - name: Run mypy
         run: |
-          poetry run mypy .\src
+          poetry run mypy src
 
       - name: Run pylint
         run: |
-          poetry run pylint --rc-file .pylintrc .\src
+          poetry run pylint --rc-file .pylintrc src
