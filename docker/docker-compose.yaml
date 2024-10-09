@@ -12,7 +12,9 @@ services:
       - "8000:8000"
     environment:
       - MONGO_URI=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongo:27017
-    command: uvicorn src.main:app --host 0.0.0.0 --port 8000
+      - CORS_ORIGINS=${CORS_ORIGINS}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --no-server-header
     networks:
       - app_network
   mongo:

@@ -1,4 +1,6 @@
 """
+database.py
+
 This module initializes the MongoDB database connection.
 """
 
