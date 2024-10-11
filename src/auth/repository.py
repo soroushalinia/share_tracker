@@ -25,4 +25,4 @@ class UserRepository(UserRepositoryInterface):
     return user
 
   async def get_user(self, user_id: PydanticObjectId) -> Optional[User]:
-    return await User.get(id)
+    return await User.get(user_id)

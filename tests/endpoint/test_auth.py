@@ -9,7 +9,7 @@ async def create_user(
   mock_user: Dict[str, str], app: FastAPI
 ) -> AsyncGenerator[Dict[str, Any], None]:
   async with AsyncClient(
-    transport=ASGITransport(app=app), base_url="http://test"
+    transport=ASGITransport(app=app), base_url="https://test"
   ) as ac:
     response = await ac.post("/auth/register", json=mock_user)
     yield {
@@ -31,7 +31,7 @@ async def test_user_register(create_user: Dict[str, Any]) -> None:
 @pytest.mark.anyio
 async def test_user_register_exists(app: FastAPI) -> None:
   async with AsyncClient(
-    transport=ASGITransport(app=app), base_url="http://test"
+    transport=ASGITransport(app=app), base_url="https://test"
   ) as ac:
     response = await ac.post(
       "/auth/register",
