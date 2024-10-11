@@ -12,6 +12,7 @@ uvicorn = "^0.31.0"
 pydantic = "^2.9.2"
 beanie = "^1.26.0"
 pydantic-settings = "^2.5.2"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
 
 
 [tool.poetry.group.dev.dependencies]
@@ -23,6 +24,8 @@ mypy = "^1.11.2"
 pytest-cov = "^5.0.0"
 pre-commit = "^3.8.0"
 testcontainers = { extras = ["mongo"], version = "^4.8.1" }
+types-passlib = "^1.7.7.20240819"
+mongomock-motor = "^0.0.34"
 
 [build-system]
 requires = ["poetry-core"]

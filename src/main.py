@@ -5,10 +5,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
-from .middleware.security import SecureHeadersMiddleware
+from src.middleware.security import SecureHeadersMiddleware
+from src.routes.v1 import auth
 
 from src.util.settings import Settings
-from .util.database import init_db
+from src.util.database import init_db
 from contextlib import asynccontextmanager
 
 settings = Settings()  # type: ignore
@@ -41,3 +42,6 @@ app.add_middleware(
 @app.get("/healthcheck")
 async def healthcheck() -> dict[str, str]:
   return {"message": "OK"}
+
+
+app.include_router(auth.router, prefix="/auth", tags=["auth"])
