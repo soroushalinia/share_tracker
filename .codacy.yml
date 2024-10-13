@@ -1,0 +1,6 @@
+exclude_paths:
+  - "**/tests/**"
+  - "README.md"
+  - "SECURITY.md"
+  - "**/docs/**"
+  - "**/*.md"
